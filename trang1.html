@@ -37,7 +37,7 @@
                 <div class="shopping">
                   <img id="shopping-img" src="css/assets/shopping.svg" />
                   <span class="quantity">0</span>
-                  <button class="popupButton" onclick="showPopup('popup')" id="user"><img src="css/assets/user.png" alt=""></i></i></button>
+                  <button class="popupButton" onclick="showPopup('popup')" id="user"><img src="css/assets/user.png" alt=""></button>
                 </div>
               </header>
 
@@ -48,12 +48,12 @@
         </div>
       </div>
       <div id="popup" class="popup">
-        <h3>ACC</h3>
-        <p>SIGN IN</p>
-        <br>
-        <P>SIGN UP</P>
-        
-        <button onclick="closePopup('popup')">Đóng</button>
+        <div>
+          <h4 class="dkdn">Đăng Kí</h4>
+          <span>/</span>
+          <h4 class="dkdn">Đăng Nhập</h4>
+        </div>
+        <button class="close" onclick="closePopup('popup')">Đóng</button>
       </div>
       <div id="banner">
         <div class="overlay"></div>
@@ -252,7 +252,7 @@
     </div>
     <div class="cart "  >
       <h1>Cart</h1>
-      <ul class="listCard"></ul>
+      <ul class="listCard" id="cart-items"></ul>
       <div class="checkOut">
         <div class="total" id="cart-total">0</div>
         <div class="closeShopping">Close</div>
@@ -261,7 +261,8 @@
     <script type="module" src="js/script.js"></script>
     <script>
       function showPopup(popupId){
-      var popup = document.getElementById(popupId)
+      console.log(popupId);
+      var popup = document.getElementById('popup')
       popup.style.display = "block";
       currentPopup = popup;
     }

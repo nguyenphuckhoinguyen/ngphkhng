@@ -211,8 +211,8 @@ header .shopping span{
 
 .popup {
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 84px;
+    left: 1250px;
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 20px;
@@ -220,8 +220,13 @@ header .shopping span{
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     display: none; /* Quan trọng ẩn ban đầu */
     width: 200px;
-    height: 150px;
+    height: 75px;
   }
+.popup .dkdn{
+    display: inline;
+
+}
+
 #banner {
     background-image :url("assets/logolego.png");   
     height: 463px;

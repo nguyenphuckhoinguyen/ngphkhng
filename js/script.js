@@ -85,16 +85,56 @@ closeShopping.addEventListener('click', ()=>{
     
 })
 
+setTimeout(handleBuyButtons, 1000);
+function handleBuyButtons() {
   // Lấy danh sách tất cả các nút "Mua hàng" dựa trên lớp (class) "buy-item"
   const buyButtons = document.querySelectorAll('.buy-item');
-  
+  console.log(buyButtons)
   // Lặp qua từng nút và thêm sự kiện click
   buyButtons.forEach(button => {
     button.addEventListener('click', () => {
-      console.log('dágdh' );
-      const productName = button.parentNode.querySelector('span:nth-child(1)').textContent;
-      const price = parseInt(button.parentNode.querySelector('span:nth-child(2)').textContent.replace(/[^0-9]/g, ''));
-      addToCart(productName, price);
+      // Lấy thông tin sản phẩm từ các phần tử con của nút
+      const productItem = button.querySelector('h3').textContent;
+      const description = button.querySelector('p').textContent;
+      const priceText = button.querySelector('p').textContent;
+      const price = parseInt(priceText.replace(/[^0-9]/g, ''));
 
+      // Thực hiện các hành động khác với thông tin sản phẩm
+      console.log('Sản phẩm:', productItem);
+      console.log('Mô tả:', description);
+      console.log('Giá:', price);
+
+      // Gọi hàm addToCart với thông tin sản phẩm
+      addToCart(productItem, price);
     });
   });
+}
+let cart=[];
+function addToCart(productName, price) {
+  // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+  const existingProduct = cart.find(item => item.name === productName);
+
+  if (existingProduct) {
+    // Nếu đã tồn tại, tăng số lượng
+    existingProduct.quantity += 1;
+  } else {
+    // Nếu chưa tồn tại, thêm sản phẩm vào giỏ hàng
+    cart.push({ name: productName, price: price, quantity: 1 });
+  }
+
+  // Cập nhật giỏ hàng trên giao diện
+  displayCart();
+}
+function displayCart(){
+  const cartItemsElement = document.getElementById('cart-items');
+  const cartTotalElement = document.getElementById('cart-total');
+
+  cart.forEach(item => {
+    const cartItemElement = document.createElement('div');
+    cartItemElement.classList.add('cart-item');
+    cartItemElement.innerHTML = `<span>${item.name} - Giá: $${item.price} - Số lượng: ${item.quantity}</span>`;
+    cartItemsElement.appendChild(cartItemElement);
+  });
+  const total = cart.reduce((accumulator, item) => accumulator + (item.price * item.quantity), 0);
+  cartTotalElement.innerHTML = `<h3>Tổng : $${total}</h3>`;
+}
