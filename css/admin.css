@@ -1,0 +1,29 @@
+.product-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-item span {
+  margin-right: 10px;
+}
+
+.product-item button {
+  margin-left: 10px;
+}
+
+/* CSS cho form chỉnh sửa sản phẩm */
+.edit-product-form {
+  display: none;
+  margin-top: 10px;
+}
+
+.edit-product-form.show {
+  display: block;
+}

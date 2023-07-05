@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div >
+        <h1>Admin Page</h1>
+
+        <!-- Form upload sản phẩm -->
+        <form id="productForm">
+          <h2>Upload Product</h2>
+      
+          <label for="productName">Product Name:</label>
+          <input type="text" id="productName" required>
+      
+          <label for="productId">Product ID:</label>
+          <input type="text" id="productId" required>
+      
+          <label for="productPrice">Product Price:</label>
+          <input type="number" id="productPrice" required>
+      
+          <label for="productImage">Product Image:</label>
+          <input type="file" id="productImage" required>
+      
+          <button type="submit">Upload</button>
+        </form>
+      
+        <!-- Danh sách sản phẩm -->
+        <div>
+          <h2>Product List</h2>
+          <ul id="productList" class="product-list"></ul>
+        
+          <!-- Form chỉnh sửa sản phẩm -->
+          <form id="editProductForm" class="edit-product-form">
+            <h2>Edit Product</h2>
+        
+            <label for="editProductName">Product Name:</label>
+            <input type="text" id="editProductName" required>
+        
+            <label for="editProductId">Product ID:</label>
+            <input type="text" id="editProductId" required>
+        
+            <label for="editProductPrice">Product Price:</label>
+            <input type="number" id="editProductPrice" required>
+        
+            <label for="editProductImage">Product Image:</label>
+            <input type="file" id="editProductImage" accept="image/*">
+        
+            <button type="submit" id="editProductSubmit">Update</button>
+            <button type="button" class="cancel" id="editProductCancel">Cancel</button>
+          </form>
+        </div>
+       
+    </div>
+ 
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
