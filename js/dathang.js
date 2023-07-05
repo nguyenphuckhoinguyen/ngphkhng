@@ -15,7 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-let cart = [];
+let cart = [];//lưu trữ đơn hàng hiện tại để upload lên firebase
 
 function addToCart(productName, price) {
     // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
@@ -64,7 +64,7 @@ function addToCart(productName, price) {
         displayCart();
   
         // Chuyển hướng đến trang mới (shop.html) với ID của đơn hàng
-        window.location.href = `shop.html?orderID=${docRef.id}`;
+        // window.location.href = `shop.html?orderID=${docRef.id}`;
       })
       .catch(function (error) {
         console.error("Lỗi khi lưu đơn hàng vào Firestore: ", error);

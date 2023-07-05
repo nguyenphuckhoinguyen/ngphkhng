@@ -74,112 +74,27 @@ let body = document.querySelector('body');
 
 openShopping.addEventListener('click', ()=>{
       var sidebar = document.querySelector('.cart');
-      sidebar.classList.toggle('open');
+      sidebar.classList.toggle('open'); // ktra cai dlieu do co hay chua, neu co r thi no xoa chua co thi them
       console.log(open);
 })
 closeShopping.addEventListener('click', ()=>{
 
   var sidebar =document.querySelector('.cart')
-  sidebar.classList.toggle('open')
+  sidebar.classList.remove('open')
   console.log(open);
     
 })
 
+  // Lấy danh sách tất cả các nút "Mua hàng" dựa trên lớp (class) "buy-item"
+  const buyButtons = document.querySelectorAll('.buy-item');
+  
+  // Lặp qua từng nút và thêm sự kiện click
+  buyButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      console.log('dágdh' );
+      const productName = button.parentNode.querySelector('span:nth-child(1)').textContent;
+      const price = parseInt(button.parentNode.querySelector('span:nth-child(2)').textContent.replace(/[^0-9]/g, ''));
+      addToCart(productName, price);
 
-
-
-// Thêm sự kiện cho từng nút "Mua hàng"
-buyButtons.forEach((button) => {
-  button.addEventListener('click', addToCart);
-});
-
-// Hàm xử lý khi bấm nút "Mua hàng"
-function addToCart(event) {
-  const product = event.target.parentElement;
-  const name = product.querySelector('.name').textContent;
-  const price = product.querySelector('.price').textContent;
-  const cartItem = createCartItem(name, price);
-  const listCard = document.querySelector('.listCard');
-  listCard.appendChild(cartItem);
-  updateTotal();
-}   
-
-function addToCard(key){
-    if(listCards[key] == null){
-        // copy product form list to list card
-        listCards[key] = JSON.parse(JSON.stringify(products[key]));
-        listCards[key].quantity = 1;
-    }
-    reloadCard();
-}
-
-// Hàm tạo phần tử danh sách đơn hàng
-function createCartItem(name, price) {
-  const item = document.createElement('li');
-  item.innerHTML = `
-    <span class="cart-item-name">${name}</span>
-    <span class="cart-item-price">${price}</span>
-    <div class="cart-item-quantity">
-      <button class="quantity-decrease">-</button>
-      <span class="quantity-value">1</span>
-      <button class="quantity-increase">+</button>
-    </div>
-    <button class="remove-button">Xóa</button>
-  `;
-  item.querySelector('.quantity-decrease').addEventListener('click', decreaseQuantity);
-  item.querySelector('.quantity-increase').addEventListener('click', increaseQuantity);
-  item.querySelector('.remove-button').addEventListener('click', removeFromCart);
-  return item;
-}
-
-// Hàm xử lý giảm số lượng sản phẩm trong đơn hàng
-function decreaseQuantity(event) {
-  const quantityElement = event.target.parentElement.querySelector('.quantity-value');
-  let quantity = parseInt(quantityElement.textContent);
-  if (quantity > 1) {
-    quantity--;
-    quantityElement.textContent = quantity;
-  }
-  updateTotal();
-}
-
-// Hàm xử lý tăng số lượng sản phẩm trong đơn hàng
-function increaseQuantity(event) {
-    const quantityElement = event.target.parentElement.querySelector('.quantity-value');
-    let quantity = parseInt(quantityElement.textContent);
-    quantity++;
-    quantityElement.textContent = quantity;
-    updateTotal();
-}
-
-// Hàm xử lý xóa sản phẩm khỏi đơn hàng
-function removeFromCart(event) {
-  const item = event.target.parentElement;
-  item.remove();
-  updateTotal();
-}
-
-// Hàm cập nhật tổng số tiền trong đơn hàng
-function updateTotal() {
-  const cartItems = document.querySelectorAll('.listCard li');
-  let total = 0;
-  cartItems.forEach((item) => {
-    const price = parseFloat(item.querySelector('.cart-item-price').textContent);
-    const quantity = parseInt(item.querySelector('.quantity-value').textContent);
-    total += price * quantity;
+    });
   });
-  document.querySelector('.total').textContent = total.toFixed(2);
-}
-
-
-var popupButton =document.querySelector('.popupButton')
-popupButton.addEventListener('click',()=>{
-  var popup = document.getElementById(popup)
-  popup.style.display = "block";
-  currentPopup = popup;
-})
-
-function closePopup(popupId) {
-  var popup = document.getElementById(popupId);
-  popup.style.display = "none";
-}

@@ -37,7 +37,7 @@
                 <div class="shopping">
                   <img id="shopping-img" src="css/assets/shopping.svg" />
                   <span class="quantity">0</span>
-                  <button class="popupButton" id="user"><img src="css/assets/user.png" alt=""></i></i></button>
+                  <button class="popupButton" onclick="showPopup('popup')" id="user"><img src="css/assets/user.png" alt=""></i></i></button>
                 </div>
               </header>
 
@@ -250,16 +250,26 @@
         </div>
       </div>
     </div>
-    <div class="cart">
+    <div class="cart "  >
       <h1>Cart</h1>
       <ul class="listCard"></ul>
       <div class="checkOut">
-        <div class="total">0</div>
+        <div class="total" id="cart-total">0</div>
         <div class="closeShopping">Close</div>
       </div>
     </div>
     <script type="module" src="js/script.js"></script>
-    <script></script>
+    <script>
+      function showPopup(popupId){
+      var popup = document.getElementById(popupId)
+      popup.style.display = "block";
+      currentPopup = popup;
+    }
+    function closePopup(popupId) {
+      var popup = document.getElementById(popupId);
+      popup.style.display = "none";
+    }
+    </script>
 
   </body>
 </html>
