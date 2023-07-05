@@ -170,11 +170,15 @@ function updateTotal() {
   });
   document.querySelector('.total').textContent = total.toFixed(2);
 }
-function showPopup(popupId){
-  var popup = document.getElementById(popupId)
+
+
+var popupButton =document.querySelector('.popupButton')
+popupButton.addEventListener('click',()=>{
+  var popup = document.getElementById(popup)
   popup.style.display = "block";
   currentPopup = popup;
-}
+})
+
 function closePopup(popupId) {
   var popup = document.getElementById(popupId);
   popup.style.display = "none";
