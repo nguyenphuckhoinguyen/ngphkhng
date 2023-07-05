@@ -65,22 +65,25 @@ productItem.classList.add("buy-item");
     return productItem;
 }
 
-// Gọi hàm để lấy danh sách sản phẩm
+// Gọi hàm để lấy danh sách sản phẩm  
 getProducts();
-function toggleSidebar() {
-  var sidebar = document.querySelector('.sidebar');
-  sidebar.classList.toggle('open');
-}
-// let openShopping = document.querySelector('shopping');
-// let closeShopping = document.querySelector('.closeShopping');
-// let body = document.querySelector('body');
 
-// openShopping.addEventListener('click', ()=>{
-//     body.classList.add('active');
-// })
-// closeShopping.addEventListener('click', ()=>{
-//     body.classList.remove('active');
-// })
+let openShopping = document.querySelector('#shopping-img');
+let  closeShopping = document.querySelector('.closeShopping');
+let body = document.querySelector('body');
+
+openShopping.addEventListener('click', ()=>{
+      var sidebar = document.querySelector('.cart');
+      sidebar.classList.toggle('open');
+      console.log(open);
+})
+closeShopping.addEventListener('click', ()=>{
+
+  var sidebar =document.querySelector('.cart')
+  sidebar.classList.toggle('open')
+  console.log(open);
+    
+})
 
 
 
