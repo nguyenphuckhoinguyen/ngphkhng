@@ -85,11 +85,11 @@ closeShopping.addEventListener('click', ()=>{
     
 })
 
-setTimeout(handleBuyButtons, 1000);
-function handleBuyButtons() {
-  // Lấy danh sách tất cả các nút "Mua hàng" dựa trên lớp (class) "buy-item"
+// Hàm chạy khi các phần tử đã được tạo hoàn tất
+function onElementsCreated() {
   const buyButtons = document.querySelectorAll('.buy-item');
-  console.log(buyButtons)
+  console.log(buyButtons);
+
   // Lặp qua từng nút và thêm sự kiện click
   buyButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -109,6 +109,27 @@ function handleBuyButtons() {
     });
   });
 }
+
+// Tạo một observer để theo dõi thay đổi trong DOM
+const observer = new MutationObserver(mutationsList => {
+  for (let mutation of mutationsList) {
+    if (mutation.type === 'childList') {
+      // Kiểm tra nếu các phần tử có class "buy-item" đã được tạo hoàn tất
+      const buyItems = document.querySelectorAll('.buy-item');
+      if (buyItems.length > 0) {
+        // Hủy bỏ việc theo dõi
+        observer.disconnect();
+
+        // Gọi hàm khi các phần tử đã được tạo hoàn tất
+        onElementsCreated();
+        break;
+      }
+    }
+  }
+});
+
+// Bắt đầu theo dõi thay đổi trong DOM
+observer.observe(document.body, { childList: true, subtree: true });
 let cart=[];
 function addToCart(productName, price) {
   // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
@@ -127,8 +148,9 @@ function addToCart(productName, price) {
 }
 function displayCart(){
   const cartItemsElement = document.getElementById('cart-items');
-  const cartTotalElement = document.getElementById('cart-total');
 
+  const cartTotalElement = document.getElementById('cart-total');
+  cartItemsElement.innerHTML=``;
   cart.forEach(item => {
     const cartItemElement = document.createElement('div');
     cartItemElement.classList.add('cart-item');

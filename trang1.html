@@ -49,11 +49,14 @@
       </div>
       <div id="popup" class="popup">
         <div>
-          <h4 class="dkdn">Đăng Kí</h4>
+          <a href="dk.html" class="dkdn">Đăng Kí</a>
           <span>/</span>
-          <h4 class="dkdn">Đăng Nhập</h4>
+          <a href="dn.html" class="dkdn">Đăng Nhập</a>
         </div>
-        <button class="close" onclick="closePopup('popup')">Đóng</button>
+
+          <button onclick="closePopup('popup')"><a class="dong">Đóng</a></button>
+ 
+       
       </div>
       <div id="banner">
         <div class="overlay"></div>
@@ -252,7 +255,7 @@
     </div>
     <div class="cart "  >
       <h1>Cart</h1>
-      <ul class="listCard" id="cart-items"></ul>
+      <div class="listCard" id="cart-items"></div>
       <div class="checkOut">
         <div class="total" id="cart-total">0</div>
         <div class="closeShopping">Close</div>
@@ -261,13 +264,14 @@
     <script type="module" src="js/script.js"></script>
     <script>
       function showPopup(popupId){
-      console.log(popupId);
-      var popup = document.getElementById('popup')
+        
+      var popup = document.getElementById(popupId)
+      // popup.classList.toggle('open')
       popup.style.display = "block";
-      currentPopup = popup;
     }
     function closePopup(popupId) {
       var popup = document.getElementById(popupId);
+      // popup.classList.remove('open')
       popup.style.display = "none";
     }
     </script>

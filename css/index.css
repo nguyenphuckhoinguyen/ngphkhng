@@ -82,7 +82,12 @@ header .shopping span{
     background-color: #f1f1f1;
     transition: right 0.3s ease-in-out;
 }
-
+.cart-item{
+    color:white ;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 15px;
+}
 .cart.open {
     right: 0; /* Khi được mở, hiển thị thanh sidebar */
     background-color: rgb(89, 89, 89);
@@ -222,11 +227,11 @@ header .shopping span{
     width: 200px;
     height: 75px;
   }
-.popup .dkdn{
+ .dkdn{
     display: inline;
-
+    text-decoration: none;
+    color: black;
 }
-
 #banner {
     background-image :url("assets/logolego.png");   
     height: 463px;
@@ -234,7 +239,6 @@ header .shopping span{
     display: flex;
 
 }
-
 
 .overlay{
     /* position: absolute; */
@@ -340,13 +344,13 @@ header .shopping span{
 }
 
 
-#list-products {
+/* #list-products {
     display: flex;
     list-style: none;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-}
+} */
 
 #list-products .item {
     width: 290px;
