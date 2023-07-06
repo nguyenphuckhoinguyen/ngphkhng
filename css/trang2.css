@@ -1,8 +1,9 @@
 body{
-    background-color: #E3E7E8;
+    background-color:  white;
     font-family: system-ui;
     display: flex;
 }
+
 .container{
     width: 1000px;
     margin: auto;
@@ -21,20 +22,27 @@ header .shopping{
     text-align: left;
     margin-right: 50px;
 }
+
+
 header .shopping img{
     width: 40px;
+    
 }
 header .shopping span{
     background: red;
     border-radius: 50%;
-    display: flex;
+    display: flex;  
     justify-content: center;
     align-items: center;
     color: #fff;
     position: absolute;
     top: -5px;
-    left: 80%;
+    left: 30%;
     padding: 3px 10px;
+}
+.popupButton{
+    background-color:  transparent;
+    border: none;
 }
 .list{
     display: grid;
@@ -65,21 +73,28 @@ header .shopping span{
     width: 100%;
     padding: 10px;
 }
-.card{
-    position: sticky;
-    top:0;
-    width: 0;
-    background-color: #453E3B;
-    height: 100vh;
-    transition: 0.5s;
+.cart{
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -200px; /* Đẩy thanh sidebar ra khỏi vùng nhìn thấy ban đầu */
+    background-color: #f1f1f1;
+    transition: right 0.3s ease-in-out;
 }
-.active .card{
-    width: 500px;
+.cart-item{
+    color:white ;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 15px;
 }
-.active .container{
-   transform: translateX(-200px);
+.cart.open {
+    right: 0; /* Khi được mở, hiển thị thanh sidebar */
+    background-color: rgb(89, 89, 89);
+    width: 280px;
 }
-.card h1{
+
+.cart h1{
     color: #E8BC0E;
     font-weight: 100;
     margin: 0;
@@ -88,15 +103,14 @@ header .shopping span{
     display: flex;
     align-items: center;
 }
-.card .checkOut{
+.cart .checkOut{
     position: absolute;
     bottom: 0;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
 }
-.card .checkOut div{
+.cart .checkOut .total{
     background-color: #E8BC0E;
     width: 100%;
     height: 70px;
@@ -106,9 +120,20 @@ header .shopping span{
     font-weight: bold;
     cursor: pointer;
 }
-.card .checkOut div:nth-child(2){
+/* .cart.checkOut div:nth-child(2){
     background-color: #1C1F25;
     color: #fff;
+} */
+.cart  .closeShopping {
+    background-color: #1C1F25;
+    color: #fff;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
 }
 .listCard li{
     display: grid;
@@ -141,24 +166,30 @@ header .shopping span{
     cursor: pointer;
 }
 
-#wrapper {
+#wrapper  {
     /* Kích thước màn hình là 1280 x 720 */
-    width: 100%;
+   width: auto;
+    margin: 0 auto;
+    padding: 0;
 }
 #header {
     width: 100%;
-    padding:0px 30px;
+    padding:0px 20px;
     margin-top:33px;
     display: flex;
     justify-content: space-between;
     align-items: center;    
     height: 5px;
+    top: 0;
+    position: fixed;
+    
 }
 
 #menu {
     list-style:none;
     display: flex;
     margin:0 0px;
+    margin-top: -25px;
 }
 
 #menu .item {
@@ -166,36 +197,56 @@ header .shopping span{
 }
 
 #menu .item a {
-    color:#626A67;
+    color:black;
     text-decoration: none;
 }
 
 
 #actions {
     display: flex;
+    margin-top: -25px;
 }
 
 #actions .item {
+ 
     margin-left:22px;
 }
 
 
 
-
+.popup {
+    position: fixed;
+    top: 84px;
+    left: 1250px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: none; /* Quan trọng ẩn ban đầu */
+    width: 200px;
+    height: 75px;
+  }
+ .dkdn{
+    display: inline;
+    text-decoration: none;
+    color: black;
+}
 #banner {
-    background-image :url("assets/logolego.png");
+    background-image :url("assets/logolego.png");   
     height: 463px;
     margin-top:40px;
     display: flex;
-    /* position: relative; */
+
 }
 
-
 .overlay{
-    position: absolute;
+    /* position: absolute; */
     background-color: rgba(0,0,0,0.5);
-    width: 100%;
-    height: 72%;
+    /* width: 100%; */
+    height: 68%;
+    padding-top: 10px;
+    margin-top: 70px;
 }
 
 
@@ -220,7 +271,7 @@ header .shopping span{
     width: 191px;
     height: 40px;
     margin-top:41px;
-    background:#1d1a1a;
+    background:#1d1a1a; 
     border:none;
     outline:none;
     color:#fff;
@@ -281,7 +332,7 @@ header .shopping span{
 #wp-products {
     padding-top:116px;
     padding-bottom: 78px;
-    padding-left:134px;
+    padding-left:14px;
     padding-right:134px;
 }
 
@@ -293,13 +344,13 @@ header .shopping span{
 }
 
 
-#list-products {
+/* #list-products {
     display: flex;
     list-style: none;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-}
+} */
 
 #list-products .item {
     width: 290px;
@@ -308,6 +359,11 @@ header .shopping span{
     border-radius: 10px;
     margin-bottom: 50px;
 }
+.imgdemo{
+    display: block;
+    
+
+}
 
 #list-products .item img {
     display: block;
@@ -315,11 +371,6 @@ header .shopping span{
     margin-top:17px;
 }
 
-.imgdemo{
-    display: block;
-    
-    height: 200px;
-}
 
  .stars {
 
@@ -359,7 +410,7 @@ header .shopping span{
     justify-content: center;
     align-items: center;
 }
-#page2{
+#page1{
     background-color: gray;
     width: 37px;
     height: 37px;
@@ -494,7 +545,7 @@ header .shopping span{
     width: 100%;
     background:rgb(0,0,0,0.79);
     height: 322px;
-    margin-top:338px;
+    margin-top:38px;
     padding:0px 63px;
     padding-top:57px;
     display: flex;
@@ -519,7 +570,7 @@ header .shopping span{
 #footer .box .quick-menu ,.item a{
     color:#fff;
     text-decoration: none;
-}
+}   
 
 
 
@@ -540,3 +591,30 @@ header .shopping span{
     margin-top:29px;
     color:#fff;
 }
+.buy-item  button{
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+
+    border-radius: 10px; ;
+    text-align: center;
+}
+
+.buy-item button:hover {
+background-color: #45a049;
+}
+        #productList {
+            display: flex;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #productList img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+

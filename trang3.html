@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web bán toy</title>
-    <link rel="stylesheet" href="css/trang3.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
   </head>
 
   <body>
@@ -22,26 +24,39 @@
             <a href="">Blog</a>
           </div>
           <div class="item">
-            <a href="lh.html">Liên hệ</a>
+            <a href="lh.html  ">Liên hệ</a>
           </div>
         </div>
         <div id="actions">
-          <div class="item">
-            <a href="acc/acc.html"><img src="assets/user.png" alt="" /></a>
+          <div class="shopping">
+
           </div>
           <div class="item">
             <div class="">
               <header>
                 <div class="shopping">
-                  <img src="assets/shopping.svg" />
+                  <img id="shopping-img" src="css/assets/shopping.svg" />
                   <span class="quantity">0</span>
+                  <button class="popupButton" onclick="showPopup('popup')" id="user"><img src="css/assets/user.png" alt=""></button>
                 </div>
               </header>
+
 
               <div class="list"></div>
             </div>
           </div>
         </div>
+      </div>
+      <div id="popup" class="popup">
+        <div>
+          <a href="dk.html" class="dkdn">Đăng Kí</a>
+          <span>/</span>
+          <a href="dn.html" class="dkdn">Đăng Nhập</a>
+        </div>
+
+          <button onclick="closePopup('popup')"><a class="dong">Đóng</a></button>
+ 
+       
       </div>
       <div id="banner">
         <div class="overlay"></div>
@@ -60,168 +75,23 @@
       </div>
       <div id="wp-products">
         <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
-        <ul id="list-products">
           <div class="item">
-            <img src="assets/lego1.jpg" class="imgdemo" alt="" />
-            <div class="stars">
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-            </div>
+              <div class="imgdemo" id="productList"></div>
 
-            <div class="name">Lego City</div>
-            <div class="desc">Hết hàng</div>
-            <div class="price">500.000 VNĐ</div>
+              
           </div>
-
-          <div class="item">
-            <img src="assets/lego2.png" class="imgdemo" alt="" />
-            <div class="stars">
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-            </div>
-
-            <div class="name">Lego</div>
-            <div class="desc">Hết hàng</div>
-            <div class="price">500.000 VNĐ</div>
-          </div>
-
-          <div class="item">
-            <img src="assets/lego3.jpg" class="imgdemo" alt="" />
-            <div class="stars">
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-            </div>
-
-            <div class="name">Lego NinjaGo</div>
-            <div class="desc">Hết hàng</div>
-            <div class="price">500.000 VNĐ</div>
-          </div>
-          <div class="item">
-            <img src="assets/lego4.jpg" class="imgdemo" alt="" />
-            <div class="stars">
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-            </div>
-
-            <div class="name">Lego City</div>
-            <div class="desc">Hết hàng</div>
-            <div class="price">500.000 VNĐ</div>
-          </div>
-
-          <div class="item">
-            <img src="assets/lego5.jpg" class="imgdemo" alt="" />
-            <div class="stars">
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-            </div>
-
-            <div class="name">Lego Minecraft</div>
-            <div class="desc">Hết hàng</div>
-            <div class="price">500.000 VNĐ</div>
-          </div>
-
-          <div class="item">
-            <img src="assets/lego6.jpg" class="imgdemo" alt="" />
-            <div class="stars">
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-              <span>
-                <img src="assets/star.png" alt="" />
-              </span>
-            </div>
-
-            <div class="name">Lego Creator</div>
-            <div class="desc">Hết hàng</div>
-            <div class="price">500.000 VNĐ</div>
-          </div>
-        </ul>
         <div class="list-page">
           <div class="item">
-            <a href="./trang1.html" >1</a>
+            <a href="./trang1.html" id="page1">1</a>
           </div>
           <div class="item">
-            <a href="./trang2.html" >2</a>
+            <a href="trang2.html">2</a>
           </div>
           <div class="item">
-            <a href="./trang3.html"  id="page3">3</a>
+            <a href="trang3.html3">3</a>
           </div>
           <div class="item">
-            <a href="./trang4.html" >4</a>
+            <a href="trang4.html">4</a>
           </div>
         </div>
       </div>
@@ -240,7 +110,7 @@
         <h2>NHẬN XÉT CỦA KHÁCH HÀNG</h2>
         <div id="comment-body">
           <div class="prev">
-            <a href="#">
+            <a href="">
               <img src="assets/prev.png" alt="" />
             </a>
           </div>
@@ -383,14 +253,28 @@
         </div>
       </div>
     </div>
-    <div class="card">
-      <h1>Card</h1>
-      <ul class="listCard"></ul>
+    <div class="cart "  >
+      <h1>Cart</h1>
+      <div class="listCard" id="cart-items"></div>
       <div class="checkOut">
-        <div class="total">0</div>
+        <div class="total" id="cart-total">0</div>
         <div class="closeShopping">Close</div>
       </div>
     </div>
-    <script src="js/trang3.js"></script>
+    <script type="module" src="js/script.js"></script>
+    <script>
+      function showPopup(popupId){
+        
+      var popup = document.getElementById(popupId)
+      // popup.classList.toggle('open')
+      popup.style.display = "block";
+    }
+    function closePopup(popupId) {
+      var popup = document.getElementById(popupId);
+      // popup.classList.remove('open')
+      popup.style.display = "none";
+    }
+    </script>
+
   </body>
 </html>
