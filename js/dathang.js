@@ -3,13 +3,14 @@ import { getFirestore, collection, addDoc, Timestamp } from "https://www.gstatic
 import { getDatabase, ref as dbRef, onValue } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDfbarULS7uhQcIDM-n4MOa8bLdKKnaaWs",
-    authDomain: "spck-89a3d.firebaseapp.com",
-    projectId: "spck-89a3d",
-    storageBucket: "spck-89a3d.appspot.com",
-    messagingSenderId: "1003387435841",
-    appId: "1:1003387435841:web:85091216342c36a50bffc0",
-    measurementId: "G-CHBGC03JCW"
+  apiKey: "AIzaSyDfbarULS7uhQcIDM-n4MOa8bLdKKnaaWs",
+  authDomain: "spck-89a3d.firebaseapp.com",
+  databaseURL: "https://spck-89a3d-default-rtdb.firebaseio.com",
+  projectId: "spck-89a3d",
+  storageBucket: "spck-89a3d.appspot.com",
+  messagingSenderId: "1003387435841",
+  appId: "1:1003387435841:web:85091216342c36a50bffc0",
+  measurementId: "G-CHBGC03JCW"
   };
   
 

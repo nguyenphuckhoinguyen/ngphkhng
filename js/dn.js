@@ -5,6 +5,7 @@ import { getAuth, signInWithEmailAndPassword} from "https://www.gstatic.com/fire
 const firebaseConfig = {
   apiKey: "AIzaSyDfbarULS7uhQcIDM-n4MOa8bLdKKnaaWs",
   authDomain: "spck-89a3d.firebaseapp.com",
+  databaseURL: "https://spck-89a3d-default-rtdb.firebaseio.com",
   projectId: "spck-89a3d",
   storageBucket: "spck-89a3d.appspot.com",
   messagingSenderId: "1003387435841",

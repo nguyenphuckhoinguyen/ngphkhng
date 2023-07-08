@@ -1,16 +1,15 @@
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
 const firebaseConfig = {
   apiKey: "AIzaSyDfbarULS7uhQcIDM-n4MOa8bLdKKnaaWs",
   authDomain: "spck-89a3d.firebaseapp.com",
+  databaseURL: "https://spck-89a3d-default-rtdb.firebaseio.com",
   projectId: "spck-89a3d",
   storageBucket: "spck-89a3d.appspot.com",
   messagingSenderId: "1003387435841",
   appId: "1:1003387435841:web:85091216342c36a50bffc0",
-  measurementId: "G-CHBGC03JCW"
-};
+  measurementId: "G-CHBGC03JCW"};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -32,7 +31,7 @@ form.addEventListener("submit", function(event) {
   createUserWithEmailAndPassword(auth, username, password)
     .then((userCredential) => {
       // Signed in 
-      window.location.href="trang1.html"
+      window.location.href="dn.html"
       const user = userCredential.user;
       console.log(user);
     })
