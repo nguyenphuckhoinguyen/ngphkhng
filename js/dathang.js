@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import { getFirestore, collection, addDoc, Timestamp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+import { getDatabase, ref as dbRef, onValue } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDfbarULS7uhQcIDM-n4MOa8bLdKKnaaWs",
@@ -14,8 +15,48 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const database = getDatabase();
+const databaseRef = dbRef(database, "products");
+const productList = document.getElementById("productList");
 
 let cart = [];//lưu trữ đơn hàng hiện tại để upload lên firebase
+function getProducts() {
+  onValue(databaseRef, (snapshot) => {
+      productList.innerHTML = ""; // Xóa danh sách sản phẩm cũ
+
+      snapshot.forEach((childSnapshot) => {
+          const productData = childSnapshot.val();
+          const productItem = createProductItem(productData);
+          productList.appendChild(productItem);
+      });
+  });
+}
+function createProductItem(productData) {
+  const { name, id, price, image } = productData;
+
+  const productItem = document.createElement("div");
+  productItem.classList.add("product-item");
+
+  const imageElement = document.createElement("img");
+  imageElement.src = image;
+  imageElement.alt = name;
+  productItem.appendChild(imageElement);
+
+  const nameElement = document.createElement("h3");
+  nameElement.textContent = name;
+  productItem.appendChild(nameElement);
+
+
+  const idElement = document.createElement( "p");
+  idElement.textContent = "Mô tả " + id;
+  productItem.appendChild(idElement);
+
+  
+
+  const priceElement = document.createElement("p");
+  priceElement.textContent = "Giá: " + price;
+  productItem.appendChild(priceElement);
+}
 
 function addToCart(productName, price) {
     // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
@@ -90,3 +131,4 @@ function addToCart(productName, price) {
   placeOrderButton.addEventListener('click', () => {
     placeOrder();
   });
+getProducts();

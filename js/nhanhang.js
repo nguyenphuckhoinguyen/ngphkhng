@@ -1,16 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
 import { getFirestore, collection, addDoc, Timestamp, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
-
 const firebaseConfig = {
-    apiKey: "AIzaSyDfA1wGxEk-8j9_gAsuvhY1ZjLEaWLcEtQ",
-    authDomain: "week10-7ab4b.firebaseapp.com",
-    databaseURL: "https://week10-7ab4b-default-rtdb.firebaseio.com",
-    projectId: "week10-7ab4b",
-    storageBucket: "week10-7ab4b.appspot.com",
-    messagingSenderId: "340713155497",
-    appId: "1:340713155497:web:5f91b7954ed89acb3132b8",
-    measurementId: "G-NEEZPLRZHV"
+  apiKey: "AIzaSyDfbarULS7uhQcIDM-n4MOa8bLdKKnaaWs",
+  authDomain: "spck-89a3d.firebaseapp.com",
+  projectId: "spck-89a3d",
+  storageBucket: "spck-89a3d.appspot.com",
+  messagingSenderId: "1003387435841",
+  appId: "1:1003387435841:web:85091216342c36a50bffc0",
+  measurementId: "G-CHBGC03JCW"
 };
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 

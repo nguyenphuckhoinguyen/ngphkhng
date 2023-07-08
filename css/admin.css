@@ -27,3 +27,19 @@
 .edit-product-form.show {
   display: block;
 }
+img{
+  width: 100px;
+  height: 100px;
+}
+.check{
+    text-decoration: none;
+    color: black;
+    
+}
+#checkdonhang{
+  display:inline;
+
+}
+.ad{
+  width: 500px;
+}

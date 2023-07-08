@@ -64,13 +64,15 @@ productItem.appendChild(productbutton)
 productItem.classList.add("buy-item");
     return productItem;
 }
+// var numberElement=document.getElementById('increaseNumber');
+// var number =0;
 
 // Gọi hàm để lấy danh sách sản phẩm  
 getProducts();
 
 let openShopping = document.querySelector('#shopping-img');
 let  closeShopping = document.querySelector('.closeShopping');
-let body = document.querySelector('body');
+// let body = document.querySelector('body');
 
 openShopping.addEventListener('click', ()=>{
       var sidebar = document.querySelector('.cart');
@@ -97,6 +99,7 @@ function onElementsCreated() {
       const productItem = button.querySelector('h3').textContent;
       const description = button.querySelector('p').textContent;
       const priceText = button.querySelector('p').textContent;
+
       const price = parseInt(priceText.replace(/[^0-9]/g, ''));
 
       // Thực hiện các hành động khác với thông tin sản phẩm
@@ -148,15 +151,22 @@ function addToCart(productName, price) {
 }
 function displayCart(){
   const cartItemsElement = document.getElementById('cart-items');
-
   const cartTotalElement = document.getElementById('cart-total');
+  const item = document.createElement('li');
+  
   cartItemsElement.innerHTML=``;
   cart.forEach(item => {
     const cartItemElement = document.createElement('div');
     cartItemElement.classList.add('cart-item');
-    cartItemElement.innerHTML = `<span>${item.name} - Giá: $${item.price} - Số lượng: ${item.quantity}</span>`;
+    cartItemElement.innerHTML = `<span>${item.name} - Giá: $${item.price} - Số lượng: ${item.quantity}  
+                                <button class="remove-button">Xóa</button></span>`;
     cartItemsElement.appendChild(cartItemElement);
   });
   const total = cart.reduce((accumulator, item) => accumulator + (item.price * item.quantity), 0);
-  cartTotalElement.innerHTML = `<h3>Tổng : $${total}</h3>`;
+  cartTotalElement.innerHTML = `<a href="dathang.html" > Tổng : $${total}</a>`;
+  item.querySelector('.remove-button').addEventListener('click', removeFromCart);
+}
+function removeFromCart(event) {
+  const item = event.target.parentElement;
+  item.remove();
 }
