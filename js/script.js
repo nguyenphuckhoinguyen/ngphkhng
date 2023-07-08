@@ -164,9 +164,44 @@ function displayCart(){
   });
   const total = cart.reduce((accumulator, item) => accumulator + (item.price * item.quantity), 0);
   cartTotalElement.innerHTML = `<a href="dathang.html" > Tổng : $${total}</a>`;
-  item.querySelector('.remove-button').addEventListener('click', removeFromCart);
 }
-function removeFromCart(event) {
-  const item = event.target.parentElement;
-  item.remove();
+function onElementsCreated() {
+  const removeButtons = document.querySelectorAll('.remove-button');
+  console.log(removeButtons);
+
+  // Lặp qua từng nút và thêm sự kiện click
+  removeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Lấy thông tin sản phẩm từ các phần tử con của nút
+      const productItem = button.querySelector('h3').textContent;
+      const description = button.querySelector('p').textContent;
+      const priceText = button.querySelector('p').textContent;
+
+      const price = parseInt(priceText.replace(/[^0-9]/g, ''));
+
+      // Thực hiện các hành động khác với thông tin sản phẩm
+      console.log('Sản phẩm:', productItem);
+      console.log('Mô tả:', description);
+      console.log('Giá:', price);
+
+      // Gọi hàm addToCart với thông tin sản phẩm
+      // addToCart(productItem, price);
+    });
+  });
+}
+
+function RemoveToCart(productName, price) {
+  // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+  const existingProduct = cart.find(item => item.name === productName);
+
+  if (existingProduct) {
+    // Nếu đã tồn tại, tăng số lượng
+    existingProduct.quantity -= 1;
+  } else {
+    // Nếu chưa tồn tại, thêm sản phẩm vào giỏ hàng
+    cart.pop({ name: productName, price: price, quantity: 1 });
+  }
+
+  // Cập nhật giỏ hàng trên giao diện
+  displayCart();
 }
