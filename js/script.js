@@ -21,11 +21,11 @@ const productList = document.getElementById("productList");
 function getProducts() {
     onValue(databaseRef, (snapshot) => {
         productList.innerHTML = ""; // Xóa danh sách sản phẩm cũ
-
+        let count =6;
         snapshot.forEach((childSnapshot) => {
             const productData = childSnapshot.val();
             const productItem = createProductItem(productData);
-            let count =6;
+   
             if (count === 0){
               console.log(count);
               return;
@@ -36,8 +36,10 @@ function getProducts() {
             }                           
             productList.appendChild(productItem);                             
         });
+
     });
 }
+
 
 // Hàm tạo phần tử HTML cho một sản phẩm
 
