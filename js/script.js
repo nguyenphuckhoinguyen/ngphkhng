@@ -89,15 +89,12 @@ closeShopping.addEventListener('click', ()=>{
 
 
 
-
-
-
 const removebut = new MutationObserver(mutationsList => {
   for (let mutation of mutationsList) {
     if (mutation.type === 'childList') {
-      // Kiểm tra nếu các phần tử có class "buy-item" đã được tạo hoàn tất
-      const buyItems = document.querySelectorAll('.buy-item');
-      if (buyItems.length > 0) {
+      // Kiểm tra nếu các phần tử có class quantiny đã được tạo hoàn tất
+      const removes = document.querySelectorAll('.remove-button');
+      if (removes.length > 0) {
         // Hủy bỏ việc theo dõi
         removebut.disconnect();
 
@@ -116,22 +113,9 @@ function removebutton() {
   console.log(removeButtons);
 
   // Lặp qua từng nút và thêm sự kiện click
-  removeButtons.forEach(button => {
+  removeButtons.forEach(button => { 
     button.addEventListener('click', () => {
-      // Lấy thông tin sản phẩm từ các phần tử con của nút
-      const productItem = button.querySelector('h3').textContent;
-      const description = button.querySelector('p').textContent;
-      const priceText = button.querySelector('p').textContent;
-
-      const price = parseInt(priceText.replace(/[^0-9]/g, ''));
-
-      // Thực hiện các hành động khác với thông tin sản phẩm
-      console.log('Sản phẩm:', productItem);
-      console.log('Mô tả:', description);
-      console.log('Giá:', price);
-
-      // Gọi hàm addToCart với thông tin sản phẩm
-      // addToCart(productItem, price);
+      // Lấy thông tin sản phẩm từ các phần tử con của n
     });
   });
 }
@@ -151,8 +135,6 @@ function RemoveToCart(productName, price) {
   // Cập nhật giỏ hàng trên giao diện
   displayCart();
 }
-
-
 
 
 
@@ -229,14 +211,18 @@ function displayCart(){
   cart.forEach(item => {
     const cartItemElement = document.createElement('div');
     cartItemElement.classList.add('cart-item');
-    cartItemElement.innerHTML = `<span>${item.name} - Giá: $${item.price} - Số lượng: ${item.quantity}  
+    cartItemElement.innerHTML = `<span><img width="220" src=${item.image} alt="">  ${item.name} - Giá: $${item.price} - Số lượng: ${item.quantity}  
                                 <button class="remove-button">Xóa</button></span>`;
+    console.log(item.quantity);
     cartItemsElement.appendChild(cartItemElement);
   });
   const total = cart.reduce((accumulator, item) => accumulator + (item.price * item.quantity), 0);
   cartTotalElement.innerHTML = `<a href="dathang.html" > Tổng : $${total}</a>`;
 }
 
+// let calculation = () => {
+//   let cartIcon = document.getElementById("quantiny");
+//   cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
+// };
 
-
-
+// calculation();
