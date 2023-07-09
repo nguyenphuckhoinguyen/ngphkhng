@@ -25,13 +25,24 @@ function getProducts() {
         snapshot.forEach((childSnapshot) => {
             const productData = childSnapshot.val();
             const productItem = createProductItem(productData);
-            productList.appendChild(productItem);
+            let count =6;
+            if (count === 0){
+              console.log(count);
+              return;
+
+            } 
+            else {
+              count -= 1;
+            }                           
+            productList.appendChild(productItem);                             
         });
     });
 }
 
 // Hàm tạo phần tử HTML cho một sản phẩm
+
 function createProductItem(productData) {
+    
     const { name, id, price, image } = productData;
 
     const productItem = document.createElement("div");
