@@ -1,76 +1,260 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/sanpham.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web bán toy</title>
+    <link rel="stylesheet" href="css/sanpham.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+  </head>
+
+  <body>
     <div id="wrapper">
-        <div id="header">
-            <div id="menu">
-              <div class="item">
-                <a href="">Trang chủ</a>
-              </div>
-              <div class="item">
-                <a href="">Sản phẩm</a>
-              </div>
-              <div class="item">
-                <a href="">Blog</a>
-              </div>
-              <div class="item">
-                <a href="lh.html  ">Liên hệ</a>
-              </div>
-            </div>
-            <div id="actions">
-              <div class="shopping">
-    
-              </div>
-              <div class="item">
-                <div class="">
-                  <header>
-                    <div class="shopping">
-                      <img id="shopping-img" src="css/assets/shopping.svg" />
-                      <span class="quantity">0</span>
-                      <button class="popupButton" onclick="showPopup('popup')" id="user"><img src="css/assets/user.png" alt=""></button>
-                    </div>
-                  </header>
-    
-    
-                  <div class="list"></div>
+      <div id="header">
+        <div id="menu">
+          <div class="item">
+            <a href="">Trang chủ</a>
+          </div>
+          <div class="item">
+            <a href="">Sản phẩm</a>
+          </div>
+          <div class="item">
+            <a href="">Blog</a>
+          </div>
+          <div class="item">
+            <a href="lh.html  ">Liên hệ</a>
+          </div>
+        </div>
+        <div id="actions">
+          <div class="shopping">
+
+          </div>
+          <div class="item">
+            <div class="">
+              <header>
+                <div class="shopping">
+                  <img id="shopping-img" src="css/assets/shopping.svg" />
+                  <span class="quantity">0</span>
+                  <button class="popupButton" onclick="showPopup('popup')" id="user"><img src="css/assets/user.png" alt=""></button>
                 </div>
-              </div>
+              </header>
+
+
+              <div class="list"></div>
             </div>
           </div>
-        <div id="footer">
-            <div class="box">
-                <p>Cung cấp sản phẩm với chất lượng an toàn cho quý khách</p>
-              </div>
-              <div class="box">
-                <h3>NỘI DUNG</h3>
-                <ul class="quick-menu">
-                  <div class="item">
-                    <a href="">Trang chủ</a>
-                  </div>
-                  <div class="item">
-                    <a href="">Sản phẩm</a>
-                  </div>
-                  <div class="item">
-                    <a href="">Blog</a>
-                  </div>
-                  <div class="item">
-                    <a href="">Liên hệ</a>
-                  </div>
-                </ul>
-              </div>
-              <div class="box">
-                <h3>LIÊN HỆ</h3>
-                <form action="">
-                  <input type="text" placeholder="Địa chỉ email" />
-                  <button>Nhận tin</button>
-                </form>
-              </div>
         </div>
+      </div>
+      <div id="popup" class="popup">
+        <div>
+          <a href="dk.html" class="dkdn">Đăng Kí</a>
+          <span>/</span>
+          <a href="dn.html" class="dkdn">Đăng Nhập</a>
+        </div>
+
+          <button onclick="closePopup('popup')"><a class="dong">Đóng</a></button>
+ 
+       
+      </div>
+      <div id="wp-products">
+        <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
+          <div class="item">
+              <div class="imgdemo" id="productList"></div>
+
+              
+          </div>
+        <div class="list-page">
+          <div class="item">
+            <a href="./trang1.html" id="page1">1</a>
+          </div>
+          <div class="item">
+            <a href="trang2.html">2</a>
+          </div>
+          <div class="item">
+            <a href="trang3.html3">3</a>
+          </div>
+          <div class="item">
+            <a href="trang4.html">4</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="saleoff">
+
+
+      </div>
+
+      <div id="comment">
+        <h2>NHẬN XÉT CỦA KHÁCH HÀNG</h2>
+        <div id="comment-body">
+          <div class="prev">
+            <a href="">
+              <img src="css/assets/prev.png" alt="" />
+            </a>
+          </div>
+          <ul id="list-comment">
+            <li class="item">
+              <div class="avatar">
+                <!-- <img src="assets/avatar_1.png" alt=""> -->
+              </div>
+              <div class="stars">
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+              </div>
+              <div class="name">ABC</div>
+
+              <div class="text">
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book.
+                </p>
+              </div>
+            </li>
+            <li class="item">
+              <div class="avatar">
+                <!-- <img src="assets/avatar_1.png" alt=""> -->
+              </div>
+              <div class="stars">
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+              </div>
+              <div class="name">BCD</div>
+
+              <div class="text">
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book.
+                </p>
+              </div>
+            </li>
+            <li class="item">
+              <div class="avatar">
+                <!-- <img src="assets/avatar_1.png" alt=""> -->
+              </div>
+              <div class="stars">
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+                <span>
+                  <img src="css/assets/star.png" alt="" />
+                </span>
+              </div>
+              <div class="name">CDE</div>
+
+              <div class="text">
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <div class="next">
+            <a href="#">
+              <img src="css/assets/next.png" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div id="footer">
+        <div class="box">
+          <p>Cung cấp sản phẩm với chất lượng an toàn cho quý khách</p>
+        </div>
+        <div class="box">
+          <h3>NỘI DUNG</h3>
+          <ul class="quick-menu">
+            <div class="item">
+              <a href="">Trang chủ</a>
+            </div>
+            <div class="item">
+              <a href="">Sản phẩm</a>
+            </div>
+            <div class="item">
+              <a href="">Blog</a>
+            </div>
+            <div class="item">
+              <a href="">Liên hệ</a>
+            </div>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>LIÊN HỆ</h3>
+          <form action="">
+            <input type="text" placeholder="Địa chỉ email" />
+            <button>Nhận tin</button>
+          </form>
+        </div>
+      </div>
     </div>
-</body>
+    <div class="cart "  >
+      <h1>Cart</h1>
+      <div class="listCard" id="cart-items"></div>
+      <div class="checkOut">
+        <div class="total" id="cart-total"><a href="dathang.html">0</a></div>
+        <div class="closeShopping">Close</div>
+      </div>
+    </div>
+    <script type="module" src="js/sanpham.js"></script>
+    <script>
+      function showPopup(popupId){
+        
+      var popup = document.getElementById(popupId)
+      // popup.classList.toggle('open')
+      popup.style.display = "block";
+    }
+    function closePopup(popupId) {
+      var popup = document.getElementById(popupId);
+      // popup.classList.remove('open')
+      popup.style.display = "none";
+    }
+    </script>
+
+  </body>
 </html>
