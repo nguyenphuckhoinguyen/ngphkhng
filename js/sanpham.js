@@ -233,13 +233,6 @@ function displayCart(){
   cartTotalElement.innerHTML = `<a href="dathang.html" > Tổng : $${total}</a>`;
 }
 
-// let calculation = () => {
-//   let cartIcon = document.getElementById("quantiny");
-//   cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
-// };
-
-// calculation();
-
 
 
 
