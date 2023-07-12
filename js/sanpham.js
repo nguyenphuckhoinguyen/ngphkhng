@@ -219,8 +219,13 @@ function displayCart() {
     (accumulator, item) => accumulator + item.price * item.quantity,
     0
   )
-  cartTotalElement.innerHTML = `<a href="dathang.html" > Tổng : $${total}</a>`
+  cartTotalElement.innerHTML = `<a href="dathang.html" id="linkdt"> Tổng : $${total}</a>`
 }
+let dathang = document.getElementById('linkdt')
+dathang.addEventListener('click', ()=>{
+  window.location.href =`payment.html?cart=${encodeURIComponent(JSON.stringify(cart))}`;
+});
+
 
 // let calculation = () => {
 //   let cartIcon = document.getElementById("quantiny");

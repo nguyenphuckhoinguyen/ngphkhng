@@ -20,7 +20,13 @@ const database = getDatabase();
 const databaseRef = dbRef(database, "products");
 const productList = document.getElementById("productList");
 
-let cart = [];//lưu trữ đơn hàng hiện tại để upload lên firebase
+const urlParams = new URLSearchParams(window.location.search);
+const cartData = urlParams.get('cart');
+
+// Chuyển đổi dữ liệu thành đối tượng giỏ hàng
+const cart = JSON.parse(decodeURIComponent(cartData));
+
+console.log("Dữ liệu giỏ hàng:", cart);//lưu trữ đơn hàng hiện tại để upload lên firebase
 function getProducts() {
   onValue(databaseRef, (snapshot) => {
       productList.innerHTML = ""; // Xóa danh sách sản phẩm cũ

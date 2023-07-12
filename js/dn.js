@@ -29,7 +29,7 @@ form.addEventListener("submit", async function(e) {
   signInWithEmailAndPassword(auth, email, pass)
   .then((userCredential) => {
     // Signed in 
-    window.location.href="/trang1.html"
+    window.location.href="trang1.html"
   })
   .catch((error) => {
     const errorCode = error.code;

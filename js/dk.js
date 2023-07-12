@@ -1,6 +1,7 @@
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+import { addDoc, collection,getFirestore  } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"; 
+import { getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDfbarULS7uhQcIDM-n4MOa8bLdKKnaaWs",
   authDomain: "spck-89a3d.firebaseapp.com",
@@ -9,35 +10,34 @@ const firebaseConfig = {
   storageBucket: "spck-89a3d.appspot.com",
   messagingSenderId: "1003387435841",
   appId: "1:1003387435841:web:85091216342c36a50bffc0",
-  measurementId: "G-CHBGC03JCW"};
+  measurementId: "G-CHBGC03JCW"
+};
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const form = document.querySelector("#form");
-console.log(form);
+const db = getFirestore(app)
+const auth = getAuth(app);
+const form = document.getElementById("form")
+
+
 form.addEventListener("submit", function(event) {
   event.preventDefault();
-  const inputUsernameRegister = document.querySelector(".input-signup-username");
-  const inputPasswordRegister = document.querySelector(".input-signup-password");
-  const inputConfirmRegister = document.querySelector(".input-signup-confirm");
-  const username = inputUsernameRegister.value;
-  const password = inputPasswordRegister.value;
-  const confirm = inputConfirmRegister.value;
 
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("pass").value;
 
-
-  const auth = getAuth();
-  createUserWithEmailAndPassword(auth, username, password)
+  createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in 
-      window.location.href="dn.html"
+      // Đăng ký thành công
       const user = userCredential.user;
       console.log(user);
+      window.location.href="dn.html"
+      // Redirect hoặc thực hiện các hành động khác sau khi đăng ký
     })
     .catch((error) => {
+      // Xử lý lỗi đăng ký
       const errorCode = error.code;
       const errorMessage = error.message;
-      // ..
+      console.log(errorCode, errorMessage);
     });
-});
+}); 
