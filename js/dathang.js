@@ -43,6 +43,7 @@ displayCart();
 const placeholder = document.querySelector('.place-order')
 placeholder.addEventListener('click' , async function(e) {
   e.preventDefault()
+  placeOrder()
 });
 function placeOrder() {
   console.log('dfaeg');
@@ -52,14 +53,8 @@ function placeOrder() {
     timestamp: Timestamp.now()
   })
     .then(function (docRef) {
-      // Xóa giỏ hàng sau khi đặt hàng
-      cart = [];
+      console.log('fif');
 
-      // Cập nhật giỏ hàng trên giao diện
-      displayCart();
-
-      // Chuyển hướng đến trang mới (shop.html) với ID của đơn hàng
-      window.location.href = `shop.html?orderID=${docRef.id}`;
     })
     .catch(function (error) {
       console.error("Lỗi khi lưu đơn hàng vào Firestore: ", error);
