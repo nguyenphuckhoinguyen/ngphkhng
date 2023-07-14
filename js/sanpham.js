@@ -146,6 +146,7 @@ function onElementsCreated() {
   buyButtons.forEach((button) => {
     button.addEventListener('click', () => {
       // Lấy thông tin sản phẩm từ các phần tử con của nút
+      const image =button.querySelector('img').getAttribute("src")
       const productItem = button.querySelector('h3').textContent
       const description = button.querySelector('p').textContent
       const priceText = button.querySelector('p').textContent
@@ -158,7 +159,7 @@ function onElementsCreated() {
       console.log('Giá:', price)
 
       // Gọi hàm addToCart với thông tin sản phẩm
-      addToCart(productItem, price)
+      addToCart(productItem, price,image)
     })
   })
 }
@@ -184,7 +185,7 @@ const observer = new MutationObserver((mutationsList) => {
 // Bắt đầu theo dõi thay đổi trong DOM
 observer.observe(document.body, { childList: true, subtree: true })
 let cart = []
-function addToCart(productName, price) {
+function addToCart(productName, price,image) {
   // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
   const existingProduct = cart.find((item) => item.name === productName)
 
@@ -194,6 +195,7 @@ function addToCart(productName, price) {
   } else {
     // Nếu chưa tồn tại, thêm sản phẩm vào giỏ hàng
     cart.push({
+      image:image,
       name: productName,
       price: price,
       quantity: 1,
@@ -219,7 +221,8 @@ function displayCart() {
   cart.forEach((item, index) => {
     const cartItemElement = document.createElement('div')
     cartItemElement.classList.add('cart-item')
-    cartItemElement.innerHTML = `<span><img width="220" src=${item.image} alt="">  ${item.name} - Giá: $${item.price} - Số lượng: ${item.quantity}  
+    cartItemElement.innerHTML = ` <span><img width="50px" src=${item.image} alt=""></span>
+                                  <span>  ${item.name}<span></span> - Giá: $${item.price} - Số lượng: ${item.quantity}  
                                 <button class="remove-button" data-id="${index}">Xóa</button></span>`
     console.log(item.quantity)
     cartItemsElement.appendChild(cartItemElement)
@@ -233,7 +236,8 @@ function displayCart() {
   console.log(dathang)
 dathang.addEventListener('click', ()=>{
   console.log(dathang)
-window.location.href =`dathang.html?cart=${encodeURIComponent(JSON.stringify(cart))}`;
+  localStorage.setItem('cart', JSON.stringify(cart));
+  window.location.href = 'dathang.html';
 });
 }
 
