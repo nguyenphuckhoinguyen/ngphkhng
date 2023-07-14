@@ -54,6 +54,8 @@ function placeOrder() {
   })
     .then(function (docRef) {
       console.log('fif');
+      alert('đặt hàng thành công')
+      window.location.href="trang1.html"
 
     })
     .catch(function (error) {

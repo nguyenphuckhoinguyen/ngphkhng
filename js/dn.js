@@ -20,19 +20,26 @@ const auth = getAuth(app);
 
 const form = document.getElementById("form")
 
+
 form.addEventListener("submit", async function(e) {
   e.preventDefault()
 
   const email = document.getElementById("email").value
   const pass = document.getElementById("pass").value
+  if(email=="admin@gmail.com" && pass=="admin123"){
+window.location.href="admin.html"}
+  else{
+    signInWithEmailAndPassword(auth, email, pass)
+    .then((userCredential) => {
+      // Signed in 
+      window.location.href="trang1.html"
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert('sai email hoặc password')
+      
+    });
+  }})
+
   
-  signInWithEmailAndPassword(auth, email, pass)
-  .then((userCredential) => {
-    // Signed in 
-    window.location.href="trang1.html"
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
-})
