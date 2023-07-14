@@ -41,8 +41,8 @@ function displayCart() {
 displayCart();
 
 const placeholder = document.querySelector('.place-order')
-placeholder.addEventListener('click' , ()=> {
-  placeOrder();
+placeholder.addEventListener('click' , async function(e) {
+  e.preventDefault()
 });
 function placeOrder() {
   console.log('dfaeg');
