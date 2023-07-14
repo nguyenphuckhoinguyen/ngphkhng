@@ -193,13 +193,22 @@ function addToCart(productName, price) {
     existingProduct.quantity += 1
   } else {
     // Nếu chưa tồn tại, thêm sản phẩm vào giỏ hàng
-    cart.push({ name: productName, price: price, quantity: 1 })
-    document.getElementsByClassName('quantity')[0].innerHTML = cart.length
+    cart.push({
+      name: productName,
+      price: price,
+      quantity: 1,
+    })
   }
+
+  const quantity = cart.reduce((accumulator, item) => {
+    return accumulator + item.quantity
+  }, 0)
+  document.getElementsByClassName('quantity')[0].innerHTML = quantity
 
   // Cập nhật giỏ hàng trên giao diện
   displayCart()
   removebutton()
+
 }
 function displayCart() {
   const cartItemsElement = document.getElementById('cart-items')
@@ -219,17 +228,12 @@ function displayCart() {
     (accumulator, item) => accumulator + item.price * item.quantity,
     0
   )
-  cartTotalElement.innerHTML = `<a href="dathang.html" id="linkdt"> Tổng : $${total}</a>`
-}
-let dathang = document.getElementById('linkdt')
+  cartTotalElement.innerHTML = `<a  id="linkdt"> Tổng : $${total}</a>`
+  let dathang = document.getElementById('linkdt')
+  console.log(dathang)
 dathang.addEventListener('click', ()=>{
-  window.location.href =`payment.html?cart=${encodeURIComponent(JSON.stringify(cart))}`;
+  console.log(dathang)
+window.location.href =`dathang.html?cart=${encodeURIComponent(JSON.stringify(cart))}`;
 });
+}
 
-
-// let calculation = () => {
-//   let cartIcon = document.getElementById("quantiny");
-//   cartIcon.innerHTML = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
-// };
-
-// calculation();
