@@ -33,7 +33,7 @@ function displayCart() {
   cart.forEach((item, index) => {
     const cartItemElement = document.createElement('div')
     cartItemElement.classList.add('cart-item')
-    cartItemElement.innerHTML = `<span><img width="50px" src=${item.image} alt=""> </span><span> ${item.name} - Giá: $${item.price} - Số lượng: ${item.quantity}  
+    cartItemElement.innerHTML = `<span ><img width="100px" src=${item.image} alt=""> </span><span class="benjs"> ${item.name} - Giá: $${item.price} - Số lượng: ${item.quantity}  
                                 <button class="remove-button" data-id="${index}">Xóa</button></span>`
     console.log(item.quantity)
     cartItemsElement.appendChild(cartItemElement)
