@@ -203,10 +203,7 @@ function addToCart(productName, price,image) {
   } else {
     // Nếu chưa tồn tại, thêm sản phẩm vào giỏ hàng
     cart.push({
-<<<<<<< HEAD
       image:image,
-=======
->>>>>>> a920491c4109582a9dbbc0d65949ab0888928952
       name: productName,
       price: price,
       quantity: 1,
