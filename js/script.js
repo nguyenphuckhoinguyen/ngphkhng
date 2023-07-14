@@ -201,9 +201,17 @@ function addToCart(productName, price) {
     existingProduct.quantity += 1
   } else {
     // Nếu chưa tồn tại, thêm sản phẩm vào giỏ hàng
-    cart.push({ name: productName, price: price, quantity: 1 })
-    document.getElementsByClassName('quantity')[0].innerHTML = cart.length
+    cart.push({
+      name: productName,
+      price: price,
+      quantity: 1,
+    })
   }
+
+  const quantity = cart.reduce((accumulator, item) => {
+    return accumulator + item.quantity
+  }, 0)
+  document.getElementsByClassName('quantity')[0].innerHTML = quantity
 
   // Cập nhật giỏ hàng trên giao diện
   displayCart()
